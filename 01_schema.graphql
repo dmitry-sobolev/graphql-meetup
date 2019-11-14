@@ -1,0 +1,23 @@
+# Important comment, pls read me
+
+"""
+Very
+long
+multi-line
+docstring
+"""
+type Query {
+    "Docstring"
+    hello(name: String): String!
+
+    "Current timestamp"
+    now: Int
+}
+
+type Mutation {
+    createWorld(name: String!): Boolean!
+}
+
+type Subscription {
+    getUpdates: String!
+}

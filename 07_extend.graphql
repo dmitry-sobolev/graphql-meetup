@@ -1,0 +1,20 @@
+# root.graphql
+
+type Query {
+    bars: [Bar!]!
+}
+
+type Bar {
+    id: ID!
+    barName: String!
+}
+
+# foo.graphql
+extend type Query {
+    foos: [Foo!]!
+}
+
+type Foo {
+    id: ID!
+    fooName: String!
+}

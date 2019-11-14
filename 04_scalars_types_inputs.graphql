@@ -1,0 +1,27 @@
+# Definition
+scalar DateTime
+
+type World {
+    name: String!
+}
+
+input NewWorld {
+    name: String!
+}
+
+type Query {
+    "Current timestamp"
+    now: DateTime!
+}
+
+type Mutation {
+    createWorld(new: NewWorld!): World!
+}
+
+# Request
+mutation CreateWorld($new: NewWorld!) {
+    createWorld(name: $new) {
+        __typename
+        name
+    }
+}

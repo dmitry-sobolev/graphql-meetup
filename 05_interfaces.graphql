@@ -1,0 +1,39 @@
+# Definition
+interface IPet {
+    id: ID!
+    name: String!
+}
+
+type Cat implements IPet {
+    id: ID!
+    name: String!
+    # ...
+}
+
+type Dog implements IPet {
+    id: ID!
+    name: String!
+    # ...
+}
+
+type Pigeon implements IPet {
+    id: ID!
+    name: String!
+    isWhite: Boolean!
+}
+
+type Query {
+    getPet: IPet!
+}
+
+# Request
+{
+    getPet {
+        __typename
+        id
+        name
+        ... on Pigeon {
+            isWhite
+        }
+    }
+}

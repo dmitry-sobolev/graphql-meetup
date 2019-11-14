@@ -1,0 +1,18 @@
+# Definition
+type Query {
+    operation1: Boolean!
+
+    operation2: Boolean!
+
+    operation3: Boolean!
+}
+
+# Request
+# All operations are performed simultaniously
+query {
+    operation1
+
+    operation2
+
+    operation3
+}
