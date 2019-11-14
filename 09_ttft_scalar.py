@@ -8,10 +8,6 @@ from tartiflette.constants import UNDEFINED_VALUE
 from tartiflette.language.ast import StringValueNode
 from tartiflette.scalar.builtins.string import ScalarString
 
-@Resolver("Query.now")
-async def resolver_hello(parent, args, ctx, info):
-    return datetime.now()
-
 Scalar('DateTime')
 class ScalarDateTime(ScalarString):
     def coerce_output(self, val: datetime) -> str:
@@ -36,6 +32,10 @@ class ScalarDateTime(ScalarString):
             logging.error('Cannot parse DateTime', exc_info=True)
 
         return UNDEFINED_VALUE
+
+@Resolver("Query.now")
+async def resolver_hello(parent, args, ctx, info):
+    return datetime.now()
 
 async def run():
     engine = await create_engine(
