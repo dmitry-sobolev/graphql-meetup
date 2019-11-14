@@ -10,6 +10,7 @@ type Bar {
 }
 
 # foo.graphql
+
 extend type Query {
     foos: [Foo!]!
 }
