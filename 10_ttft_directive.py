@@ -21,11 +21,9 @@ class ModelDirective:
             value = asdict(value)
         return await next_directive(value, ctx, info)
 
-
 @Resolver("Query.hello")
 async def resolver_hello(parent, args, ctx, info):
     return World(name=f"hello {args['name']}")
-
 
 @dataclass
 class World:
@@ -56,3 +54,4 @@ async def run():
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     loop.run_until_complete(run())
+                 
