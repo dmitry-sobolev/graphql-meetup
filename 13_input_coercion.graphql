@@ -1,0 +1,15 @@
+directive @model on INPUT_OBJECT | OBJECT
+
+input Coordinates @model {
+    lat: Float!
+    lng: Float!
+}
+
+input MapObject @model {
+    name: String!
+    coordinates: Coordinates!
+}
+
+type Mutation {
+    createMapObject(new: MapObject!): Boolean!
+}
