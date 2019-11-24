@@ -1,4 +1,3 @@
-# Definition
 interface IPet {
     id: ID!
     name: String!
@@ -7,33 +6,12 @@ interface IPet {
 type Cat implements IPet {
     id: ID!
     name: String!
-    # ...
+    meowVolume: Int!
 }
 
-type Dog implements IPet {
-    id: ID!
-    name: String!
-    # ...
-}
 
 type Pigeon implements IPet {
     id: ID!
     name: String!
     isWhite: Boolean!
-}
-
-type Query {
-    getPet: IPet!
-}
-
-# Request
-{
-    getPet {
-        __typename
-        id
-        name
-        ... on Pigeon {
-            isWhite
-        }
-    }
 }

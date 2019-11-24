@@ -1,18 +1,10 @@
-# Definition
-type Query {
-    operation1: Boolean!
-
-    operation2: Boolean!
-
-    operation3: Boolean!
-}
-
-# Request
-# All operations are performed simultaniously
-query {
-    operation1
-
-    operation2
-
-    operation3
+query ListUsers($limit: Int!) {
+    users(limit: $limit) {
+        id
+        name
+        friends(limit: $limit) {
+            id
+            name
+        }
+    }
 }

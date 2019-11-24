@@ -1,23 +1,26 @@
-# Important comment, pls read me
+directive @model on OBJECT | INPUT_OBJECT
 
-"""
-Very
-long
-multi-line
-docstring
-"""
+scalar Email
+
+type User @model {
+    id: ID!
+    name: String!
+    email: Email!
+    friends(limit: Int = 5): [User!]
+}
+
+input NewUser @model {
+    name: String!
+    email: Email!
+    friends: [ID!]
+}
+
 type Query {
-    "Docstring"
-    hello(name: String): String!
-
-    "Current timestamp"
-    now: Int
+    "Current user"
+    users(limit: Int = 10): User!
 }
 
 type Mutation {
-    createWorld(name: String!): Boolean!
-}
-
-type Subscription {
-    getUpdates: String!
+    "Create new user"
+    createUser(new: NewUser!): User!
 }

@@ -1,4 +1,3 @@
-import random
 from tartiflette import TypeResolver
 
 
@@ -7,4 +6,7 @@ def resolve_pet_type(result, context, info, abstract_type):
     if 'isWhite' in result:
         return 'Pigeon'
 
-    return random.choice(['Cat', 'Dog'])
+    if 'meowVolume' in result:
+        return 'Cat'
+
+    return 'IPet'

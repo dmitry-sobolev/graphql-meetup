@@ -1,0 +1,11 @@
+directive @model(cls: String) on INPUT_OBJECT | OBJECT
+
+input Coordinates @model(cls: "Coordinates") {
+    lat: Float!
+    lng: Float!
+}
+
+input MapObject @model(cls: "MapObject") {
+    name: String!
+    coordinates: Coordinates!
+}
