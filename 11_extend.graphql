@@ -1,0 +1,14 @@
+#base.graphql
+type Query {
+  viewer: User
+}
+
+# user.graphql
+extend type Query {
+  users: [User!]!
+}
+
+# post.graphql
+extend type Query {
+  post: [Post!]!
+}
